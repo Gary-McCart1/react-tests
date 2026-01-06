@@ -21,7 +21,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout Repository      # <--- You must checkout here too
         uses: actions/checkout@v4
@@ -35,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test -- --watchAll=false
+        run: npm test -- --run
 
   deploy:
     needs: test
